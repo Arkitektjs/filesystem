@@ -1,0 +1,26 @@
+{
+  "name": "@arkitektjs/filesystem",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "ts-node-dev --respawn --transpileOnly index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Arkitektjs/filesystem.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Arkitektjs/filesystem/issues"
+  },
+  "homepage": "https://github.com/Arkitektjs/filesystem#readme",
+  "devDependencies": {
+    "@types/node": "^13.11.1",
+    "ts-node-dev": "^1.0.0-pre.44",
+    "typescript": "^3.8.3"
+  },
+  "dependencies": {}
+}
