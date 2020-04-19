@@ -4,7 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "ts-node-dev --respawn --transpileOnly index.ts"
+    "dev": "ts-node-dev --respawn --transpileOnly index.ts",
+    "lint": "eslint \"{src,tests}/**/*.ts\" --config .eslintrc",
+    "lint:fix": "eslint \"{src,tests}/**/*.ts\" --config .eslintrc --fix",
+    "test": "jest --passWithNoTests",
+    "test:watch": "jest --passWithNoTests --watchAll"
   },
   "repository": {
     "type": "git",
@@ -18,8 +22,18 @@
   },
   "homepage": "https://github.com/Arkitektjs/filesystem#readme",
   "devDependencies": {
+    "@types/eslint": "^6.8.0",
+    "@types/jest": "^25.2.1",
     "@types/node": "^13.11.1",
+    "@typescript-eslint/eslint-plugin": "^2.28.0",
+    "@typescript-eslint/parser": "^2.28.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-plugin-import": "^2.20.2",
+    "jest": "^25.3.0",
+    "ts-jest": "^25.4.0",
     "ts-node-dev": "^1.0.0-pre.44",
+    "tsc-watch": "^4.2.3",
     "typescript": "^3.8.3"
   },
   "dependencies": {}
