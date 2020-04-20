@@ -1,27 +1,37 @@
+/**
+ * Path of the directory
+ */
+
+export type DirectoryPath = string;
+
 export interface FileSystemDirectoryInterface {
+  /**
+   * Current directory
+   */
+  cwd: DirectoryPath;
+
   /**
    * Create a new directory in the specified path
    * @param path
    */
-  create(path: string): void;
+  create(path: DirectoryPath): string;
 
   /**
-   * Rename the directory
-   * @param oldPath
-   * @param newPath
+   * Check if directory exists
+   * @param path
    */
-  rename(oldPath: string, newPath: string): void;
+  exists(path: DirectoryPath): boolean;
 
   /**
    * Move the directory in a new path
    * @param oldPath
    * @param newPath
    */
-  move(oldPath: string, newPath: string): void;
+  move(oldPath: DirectoryPath, newPath: DirectoryPath): DirectoryPath;
 
   /**
    * Delete the specified directory
    * @param path
    */
-  delete(path: string): void;
+  delete(path: DirectoryPath): boolean;
 }
