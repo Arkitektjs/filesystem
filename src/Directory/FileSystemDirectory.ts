@@ -1,4 +1,4 @@
-import fs from 'fs';
+import { readdirSync, mkdirSync, existsSync, renameSync, rmdirSync } from 'fs';
 import {
   FileSystemDirectoryInterface,
   DirectoryPath,
@@ -7,23 +7,32 @@ import {
 class FileSystemDirectory implements FileSystemDirectoryInterface {
   cwd: DirectoryPath = process.cwd();
 
+  list(path: DirectoryPath): Array<string> {
+    return readdirSync(`${this.cwd}/${path}`, { withFileTypes: true })
+      .filter((dir) => dir.isDirectory())
+      .map((dir) => dir.name);
+  }
+
   create(path: DirectoryPath): string {
     const newDirectory = `${this.cwd}/${path}`;
-    fs.mkdirSync(newDirectory);
+    mkdirSync(newDirectory);
+
     return newDirectory;
   }
 
   exists(path: DirectoryPath): boolean {
-    return fs.existsSync(path);
+    return existsSync(path);
   }
 
   move(oldPath: DirectoryPath, newPath: DirectoryPath): DirectoryPath {
-    fs.renameSync(oldPath, newPath);
+    renameSync(oldPath, newPath);
+
     return newPath;
   }
 
   delete(path: DirectoryPath): boolean {
-    fs.rmdirSync(path);
+    rmdirSync(path);
+
     return true;
   }
 }

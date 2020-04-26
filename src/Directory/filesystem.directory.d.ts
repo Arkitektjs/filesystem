@@ -11,6 +11,12 @@ export interface FileSystemDirectoryInterface {
   cwd: DirectoryPath;
 
   /**
+   * Lists all directories in the specified path
+   * @param path
+   */
+  list(path: DirectoryPath): Array<string>;
+
+  /**
    * Create a new directory in the specified path
    * @param path
    */
